@@ -13,7 +13,8 @@ public class FinanceCollector implements Collector {
 		this.dataset = "{}";
 		this.config_parameters = new String[10];
 		
-		this.url = "https://www.quandl.com/api/v3/datatables/ZACKS/FC.json?api_key=1mnxzeY4FDdPDRxdx_DY";
+		
+		this.url = "https://www.quandl.com/api/v3/datatables/WIKI/PRICES.json?date.gte=20150101&date.lt=20160101&ticker=MSFT&api_key=1mnxzeY4FDdPDRxdx_DY";
 	}
 	
 	@Override
