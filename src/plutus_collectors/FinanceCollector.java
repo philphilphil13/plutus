@@ -1,5 +1,7 @@
 package plutus_collectors;
 
+import org.json.JSONObject;
+
 public class FinanceCollector implements Collector {
 
 	private String dataset;
@@ -29,8 +31,13 @@ public class FinanceCollector implements Collector {
 
 	@Override
 	public String getData() {
-		// TODO Auto-generated method stub
-		return this.dataset;
+		
+		JSONObject json = new JSONObject(this.dataset); // Convert text to object
+		
+		return json.toString(4); // 
+
+		
+		
 	}
 
 	@Override
