@@ -14,7 +14,8 @@ public class FinanceCollector implements Collector {
 		this.config_parameters = new String[10];
 		
 		
-		this.url = "https://www.quandl.com/api/v3/datatables/WIKI/PRICES.json?date.gte=20150101&date.lt=20160101&ticker=MSFT&api_key=1mnxzeY4FDdPDRxdx_DY";
+		//this.url = "https://www.quandl.com/api/v3/datatables/WIKI/PRICES.json?date.gte=20150101&date.lt=20170222&ticker=MSFT&api_key=1mnxzeY4FDdPDRxdx_DY";
+		this.url ="";
 	}
 	
 	@Override
@@ -42,9 +43,27 @@ public class FinanceCollector implements Collector {
 	}
 
 	@Override
+	/**
+	 * Three values in config params array: 0 = from date, 1 = to date, 2 = ticker
+	 */
 	public boolean configureCollector(String[] config_parameters) {
-		// TODO Auto-generated method stub
+		
+		try{
+			
+		this.config_parameters = config_parameters;
+		
+		this.url = "https://www.quandl.com/api/v3/datatables/WIKI/PRICES.json?date.gte="+this.config_parameters[0]+"&date.lt="+this.config_parameters[1]+"&ticker="+this.config_parameters[2]+"&api_key=1mnxzeY4FDdPDRxdx_DY";
+				
+		}catch(Exception e){
+		
+		System.out.println(e.getMessage());
+		
 		return false;
+		
+	}
+		
+		
+		return true;
 	}
 
 	@Override
